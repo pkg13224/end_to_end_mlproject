@@ -1,0 +1,1 @@
+# this training pipeline I will try to trigger or call all these components (ingesion.py, transformation, train)
