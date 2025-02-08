@@ -38,10 +38,10 @@ on:
             - main
 
 env:
-  PROJECT_ID: 'turing-variety-448311-c1' # TODO: update to your Google Cloud project ID
+  PROJECT_ID: 'cicdgithubactiondeploy' # TODO: update to your Google Cloud project ID
   REGION: 'us-central1' # TODO: update to your region
   SERVICE: 'my-flask-app' # TODO: update to your service name
-  GAR_NAME: 'gclouddeploymentusinggithubactioncicd'
+  GAR_NAME: 'dockerimages'
   GAR_LOCATION: 'us-central1'
 
 jobs:
@@ -65,7 +65,7 @@ jobs:
         id: 'auth'
         uses: 'google-github-actions/auth@v2' # google-github-actions/auth@v2
         with:
-          credentials_json: '${{ secrets.GCP_CRED }}'
+          credentials_json: '${{ secrets.GCP_SA_KEY }}'
 
       # BEGIN - Docker auth and build
       #
@@ -77,8 +77,8 @@ jobs:
 
       - name: 'Build and Push Container'
         run: |-
-          docker build -t ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_NAME }}/${{ env.SERVICE }}:${{ github.sha }} ./
-          docker push ${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_NAME }}/${{ env.SERVICE }}:${{ github.sha }}
+          docker build -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_NAME }}/${{ env.SERVICE }}:${{ github.sha }}" ./
+          docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_NAME }}/${{ env.SERVICE }}:${{ github.sha }}""
 
           
       - name: 'Deploy to Cloud Run'
