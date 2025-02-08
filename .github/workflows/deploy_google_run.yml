@@ -32,10 +32,10 @@ name: 'Build and Deploy to Cloud Run'
 on:
     push:
         branches:
-            -main
+            - main
     pull_request:
         branches:
-            -main
+            - main
 
 env:
   PROJECT_ID: 'turing-variety-448311-c1' # TODO: update to your Google Cloud project ID
