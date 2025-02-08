@@ -38,7 +38,7 @@ on:
             - main
 
 env:
-  PROJECT_ID: 'My First Project' # TODO: update to your Google Cloud project ID
+  PROJECT_ID: 'myfirstproject' # TODO: update to your Google Cloud project ID
   REGION: 'us-central1' # TODO: update to your region
   SERVICE: 'my-service' # TODO: update to your service name
   GAR_NAME: 'gclouddeploymentusinggithubactioncicd'
