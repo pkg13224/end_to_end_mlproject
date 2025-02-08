@@ -38,7 +38,7 @@ on:
             - main
 
 env:
-  PROJECT_ID: 'myfirstproject' # TODO: update to your Google Cloud project ID
+  PROJECT_ID: 'turing-variety-448311-c1' # TODO: update to your Google Cloud project ID
   REGION: 'us-central1' # TODO: update to your region
   SERVICE: 'my-flask-app' # TODO: update to your service name
   GAR_NAME: 'gclouddeploymentusinggithubactioncicd'
