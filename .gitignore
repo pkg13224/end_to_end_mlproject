@@ -8,6 +8,7 @@ __pycache__/
 
 Agenda.txt
 artifacts
+cicd.yml
 
 # Distribution / packaging
 .Python
